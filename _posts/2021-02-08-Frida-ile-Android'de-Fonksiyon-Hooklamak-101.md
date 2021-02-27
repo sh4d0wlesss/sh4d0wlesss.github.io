@@ -204,7 +204,7 @@ Scripti çalıştırdıktan sonra root uyarısına ok dedik, ardından AES fonks
 73,32,119,97,110,116,32,116,111,32,98,101,108,105,101,118,101
 ```
 Bunu decimal to text ile ascii değerlerinden texte dönüştürürsek:
-- Link: https://gchq.github.io/CyberChef/#recipe=From_Decimal('Comma',false)&input=NzMsMzIsMTE5LDk3LDExMCwxMTYsMzIsMTE2LDExMSwzMiw5OCwxMDEsMTA4LDEwNSwxMDEsMTE4LDEwMQ
+- Link: [Cyber Chef Recipe](https://gchq.github.io/CyberChef/#recipe=From_Decimal('Comma',false)&input=NzMsMzIsMTE5LDk3LDExMCwxMTYsMzIsMTE2LDExMSwzMiw5OCwxMDEsMTA4LDEwNSwxMDEsMTE4LDEwMQ)
 ```
 I want to believe
 ```
