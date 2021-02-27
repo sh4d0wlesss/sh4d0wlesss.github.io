@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Frida ile Android'de Fonksiyon Hooklamak 101"
+title:  "Frida ile Android'de Fonksiyon Hooklamak - Frida 101"
 date:   2021-02-08 00:48:00 +0300
-categories: Mobile Application Security
+categories: mobile
 ---
-# Frida ile Android'de Fonksiyon Hooklamak 101
+# Frida ile Android'de Fonksiyon Hooklamak - Frida 101
 Merhaba!<br>
 Bu yazıda başlıktan da anlaşıldığı üzere frida kullanarak giriş seviyesinde function hook nasıl yapılır adım adım anlatmaya çalışacağım. Ben de frida öğrenme aşamasındayım, bu yüzden yanlış yazıda bir şey var ise bana mesaj vs. atarsanız çok sevinirim.   Kurban uygulamamız OWASP Uncrackable1 olacak.
 > Uygulama Link: https://github.com/OWASP/owasp-mstg/blob/master/Crackmes/Android/Level_01/UnCrackable-Level1.apk
