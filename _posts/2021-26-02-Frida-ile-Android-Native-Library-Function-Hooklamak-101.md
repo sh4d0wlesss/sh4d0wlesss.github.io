@@ -26,7 +26,7 @@ Java.perform(function(){
 <br>
 
 ```java
-$ frida -U -f owasp.mstg.uncrackable1 -l script.js --no-pause
+$ frida -U -f owasp.mstg.uncrackable2 -l script.js --no-pause
 // -U, --usb                   connect to USB device
 // -f FILE, --file=FILE        spawn FILE
 // -l SCRIPT, --load=SCRIPT    load SCRIPT
