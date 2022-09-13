@@ -72,8 +72,8 @@ author:
       icon: "fab fa-fw fa-telegram"
       url: "https://t.me/sh4d0wless"
     - label: "Mail"
-      icon: "fab fa-fw fa-email"
-      url: "sh4d0wless@protonmail.com"
+      icon: "fab fa-fw fa-envelope"
+      url: "mailto:sh4d0wless@protonmail.com"
 
 defaults:
   # _posts
