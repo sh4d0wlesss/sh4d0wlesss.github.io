@@ -1,6 +1,6 @@
 ---
-title: "Post: Modified Date"
-last_modified_at: 2016-03-09T16:20:02-05:00
+title:  "Frida ile Android'de Fonksiyon Hooklamak - Frida 101"
+date:   2021-02-08T00:48:00-0400
 categories:
   - android
 tags:
