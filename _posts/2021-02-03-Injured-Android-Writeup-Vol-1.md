@@ -2,7 +2,6 @@
 title:  "[TR]Injured Android Writeup VOL-1"
 date:   2021-02-03T00:48:00-0400
 categories:
-  - writeup
   - android
 tags:
   - ctf
