@@ -1,7 +1,7 @@
 ---
-title: Hakkımda
+title: about
 permalink: /about/
 ---
-# Kim bu şadovlıs
+# şadovlıs???
 
-Siber güvenlik konusunda bi şeyler yapmaya çalışan ama ne yaptığını da bilmeyen bilgisayar mühendisliği öğrencisi.
+I'm just a security researcher who interested in Android application security and mobile malware analysis.
