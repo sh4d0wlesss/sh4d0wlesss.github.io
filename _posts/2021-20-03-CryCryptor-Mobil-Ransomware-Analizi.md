@@ -7,7 +7,7 @@ tags:
   - malware
   - android
 ---
-# CryCryptor Mobil Malware(Ransomware) Analizi
+
 Merhaba <br>
  Bu yazıda CryCryptor mobil zararlı yazılımını elimden geldiğince incelemeye ve açıklamaya çalışacağım. Öncelikle malware analizi konusunda pek de bir şey bilmediğimden ötürü yazı teknik açıdan pek de dolu olmayabilir ama böyle böyle öğrenmeye çalışıyoruz bi şeyler :)
 
