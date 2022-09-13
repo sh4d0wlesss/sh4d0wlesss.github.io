@@ -15,11 +15,10 @@
 # in the templates via {{ site.myvariable }}.
 title: sh4d0wless
 email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Sh4d0wless'ın mekanı.
+description: Sh4d0wless'ın mekanı.
 twitter_username: sh4d0wlesss
 github_username: sh4d0wlesss
-minimal_mistakes_skin: neon
+minimal_mistakes_skin: "neon"
 search: true
 
 # Build settings
