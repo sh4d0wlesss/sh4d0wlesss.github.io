@@ -2,9 +2,9 @@
 title:  "CryCryptor Mobil Malware(Ransomware) Analizi"
 date:   2021-03-20T00:48:00-0400
 categories:
-  - android
+  - malware
 tags:
-  - frida
+  - malware
   - android
 ---
 # CryCryptor Mobil Malware(Ransomware) Analizi
