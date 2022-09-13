@@ -6,7 +6,7 @@ categories:
 tags:
   - ctf
 ---
-# Deloitte Hackazon Writeup Phase-1 | sh4d0wless
+
 ## PHASE 1 QUESTIONS
 ### Holiday Snack (Babycrypto) 150 point
 İts beginner level crypto challenge. I generally use Cyberchef fot easy crypto challenges, its "magic" option is very good :)
