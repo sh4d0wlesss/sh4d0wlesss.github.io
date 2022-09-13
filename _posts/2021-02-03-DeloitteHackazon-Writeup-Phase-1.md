@@ -2,7 +2,7 @@
 title:  "Deloitte Hackazon Writeup Phase-1"
 date:   2021-02-03T00:48:00-0400
 categories:
-  - ctf writeup
+  - writeup
 tags:
   - ctf
 ---
