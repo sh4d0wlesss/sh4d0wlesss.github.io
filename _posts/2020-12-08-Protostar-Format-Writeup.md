@@ -7,7 +7,6 @@ tags:
   - protostar
   - exploit
 ---
-# Protostar Format Writeup
 
 
 Merhaba, bu yazıda önceki yazıda çözmüş olduğumuz protostar serisinin `format` bölümünü anlatmaya çalışacağım. Adından da anlaşıldığı üzere bu bölümde format string zafiyetiyle ilgili sorular çözmeye çalışacağız. Öncelikle format string nedir ve printf fonksiyonu nasıl çalışır, fonksiyon çağırıldığında stackde nasıl bir düzen olur bunları bilmemiz lazım. Bu konu için çok güzel bir video var.
