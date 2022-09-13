@@ -7,9 +7,9 @@ tags:
   - protostar
   - exploit
 ---
-
-
 # Protostar Stack Writeup
+
+
 `Ön tavsiye`: bu yazıyı okumadan önce stack nedir ve nasıl çalışır, fonksiyon çağrıları nasıl olur, register nedir ne iş yapar gibi kavram ve konular hakkında ufaktan bi fikrinizin olması faydalı olacaktır.
 
 Öncelikle protostar makinesini indirip sanal makine olarak kurmanız gerekmekte, ardından ssh ile makineye bağlanabilirsiniz. soruların binary dosyaları /opt/protostar/bin/ dizini altında yer almakta. Başlayalım :)
