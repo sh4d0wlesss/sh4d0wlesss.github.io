@@ -17,7 +17,7 @@ Mobile Hacking Labs give you 120 min online lab as Corellium instance but i want
 
 When we open the app in emulator, it opens blank page with "Hello from c++" text. Let's open it with jadx to understand the app.
 
-![](./assets/images_mhl_strings/activity2manifest.png)
+![](/assets/images_mhl_strings/activity2manifest.png)
 
 As seen in the AndroidManifest.xml file, we have another exported activity with intent filter. To properly triger this activity we need to send intent with uri with "mhl" scheme and "labs" host.
 ```bash
@@ -25,7 +25,7 @@ adb shell am start -d "mhl://labs" -n com.mobilehackinglab.challenge/.Activity2
 ```
 But we need to know what happened when this activity triggered. To undestand this, lets analyze Activity2
 
-![](./assets/images_mhl_strings/activity2part1.png)
+![](/assets/images_mhl_strings/activity2part1.png)
  
 On part 1:
 - app try to read DAD4.xml file from shared preferences and reads a string value associated with the key "UUU0133"
@@ -72,7 +72,7 @@ Key -> "your_secret_key_1234567890123456"
 IV -> "1234567890123456" (comes from Activity2Kt.fixedIV variable)
 Mode -> CBC
 ```
-![](./assets/images_mhl_strings/cyberchef.png)
+![](/assets/images_mhl_strings/cyberchef.png)
 
 Our secret value is "q". İf we send the base64 encoded version of this secret string, we can pass all checks and app will load "flag" library and call getflag function.(And dont forget to call KLOW function before this steps :D)
 ```sh
@@ -119,11 +119,11 @@ And for sending intent we can use adb:
 ```sh
 adb shell am start -a android.intent.action.VIEW -W -d "mhl://labs/bWhsX3NlY3JldF8xMzM3" -n com.mobilehackinglab.challenge/.Activity
 ```
-![](./assets/images_mhl_strings/result1.png)
+![](/assets/images_mhl_strings/result1.png)
 
 Oh, we get Success message but where is the flag? I tried to understand what happened in the getflag function from libflag.so but its obfuscated. It contains tons of functions and they call tons of memcpy and mhl gives us a hint about frida memory dump. Because of that first of all i tried fridump tool to dump memory of application and grepped the flag format because i dont know how to dump app memory inside of my frida script.
 
-![](./assets/images_mhl_strings/result2.png)
+![](/assets/images_mhl_strings/result2.png)
 
 Flag owned :)
 But i searched frida memory scan in frida docs and [found a useful code snippet](https://frida.re/docs/javascript-api/#memory) and changed it a little bit.
@@ -188,6 +188,6 @@ Java.perform(function () {
 ```
 And here is the flag again :
 
-![](./assets/images_mhl_strings/frida_memscan.png)
+![](/assets/images_mhl_strings/frida_memscan.png)
 
 Thanks for reading :)
