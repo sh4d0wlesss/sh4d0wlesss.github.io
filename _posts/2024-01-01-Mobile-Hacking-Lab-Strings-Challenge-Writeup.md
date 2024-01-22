@@ -121,7 +121,7 @@ adb shell am start -a android.intent.action.VIEW -W -d "mhl://labs/bWhsX3NlY3Jld
 ```
 ![](/assets/images_mhl_strings/result1.png)
 
-Oh, we get Success message but where is the flag? I tried to understand what happened in the getflag function from libflag.so but its obfuscated. It contains tons of functions and they call tons of memcpy and mhl gives us a hint about frida memory dump. Because of that first of all i tried fridump tool to dump memory of application and grepped the flag format because i dont know how to dump app memory inside of my frida script.
+Oh, we get Success message but where is the flag? I tried to understand what happened in the getflag function from libflag.so but its obfuscated. It contains tons of functions and they call tons of memcpy and mhl gives us a hint about frida memory dump. Because of that first of all i tried fridump tool to dump memory of application and grepted the flag format because i dont know how to dump app memory inside of my frida script.
 
 ![](/assets/images_mhl_strings/result2.png)
 
