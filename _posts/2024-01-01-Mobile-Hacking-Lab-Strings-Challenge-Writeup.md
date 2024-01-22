@@ -74,7 +74,7 @@ Mode -> CBC
 ```
 ![](/assets/images_mhl_strings/cyberchef.png)
 
-Our secret value is "q". İf we send the base64 encoded version of this secret string, we can pass all checks and app will load "flag" library and call getflag function.(And dont forget to call KLOW function before this steps :D)
+Our secret value is "mhl_secret_1337". If we send the base64 encoded version of this secret string, we can pass all checks and app will load "flag" library and call getflag function.(And dont forget to call KLOW function before this steps :D)
 ```sh
 sh4d0wless@paradise:~$ echo -n "mhl_secret_1337" | base64
 bWhsX3NlY3JldF8xMzM3
