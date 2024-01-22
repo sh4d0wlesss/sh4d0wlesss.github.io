@@ -1,5 +1,5 @@
 ---
-title:  "Mobile Hacking Labs - Strings Writeup"
+title:  "Mobile Hacking Labs Strings Writeup"
 date:   2024-01-01T00:48:00-0400
 categories:
   - writeup
