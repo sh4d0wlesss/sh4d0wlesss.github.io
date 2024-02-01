@@ -17,7 +17,7 @@ Instead of solving challenge on Corellium instance,i downloaded base.apk from la
 
 When we open the app in emulator, it opens a page with "load pdf" button. When we press the button, it opens the file manager for us to select a pdf file. Let's open it with jadx to understand the app.
 
-![](./assets/images_mhl_documentviewer/manifest.png)
+![](/assets/images_mhl_documentviewer/manifest.png)
 
 When we examine the manifest file, we see that an intent filter is defined for MainActivity. To properly trigger this activity we need to send intent with http/https or file scheme and VIEW action. 
 ```bash
@@ -26,7 +26,7 @@ adb shell am start -n com.mobilehackinglab.documentviewer/.MainActivity -a andro
 ```
 But we need to know what happened when this activity triggered. To undestand this, lets analyze MainActivity
 
-![](./assets/images_mhl_documentviewer/mainactivity.png)
+![](/assets/images_mhl_documentviewer/mainactivity.png)
  
 Inside the onCreate function, 3 method called after setting the view of activity. After that, if `proFeaturesEnabled` boolean is true, `initProFeatures` function will be called and as seen on line 29, `initProFeatures` is loaded from native library.
 
@@ -34,25 +34,25 @@ Let's analyze the functions one by one. I will skip the setLoadButtonListener fu
 
 ### handleIntent Function
 
-![](./assets/images_mhl_documentviewer/handleIntent.png)
+![](/assets/images_mhl_documentviewer/handleIntent.png)
 
 handleIntent function handle the coming intent and after checking the action and uri, sends the uri to CopyFileFromUri function. After copying file from uri, it renders the pdf. So where and how does it copy the file from the uri?
 
-![](./assets/images_mhl_documentviewer/copyFromUri.png)
+![](/assets/images_mhl_documentviewer/copyFromUri.png)
 
 copyFileFromUri fıunction is responsible for parsing the uri that comes with intent. It takes the last part of url with getLastPathSegment and uses it as filename. If last part is empty, filename will be "download.pdf". After that, we will see the line started with BuildersKt. I didnt write any line of kotlin code before and i searched that method on google. According to [this documentation](https://javadoc.io/doc/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.1.1/kotlinx/coroutines/BuildersKt.html), launch method start a new coroutine without blocking current thread. In documentation, last argument of launch function is the code that will run when coroutine start but in jadx the last arg is null.
 
-![](./assets/images_mhl_documentviewer/coroutine1.png)
+![](/assets/images_mhl_documentviewer/coroutine1.png)
 
 As i understand (just guessing) when we created this coroutine, firstly it will set variables with arguments and call the invoke function( overridden [Function2](https://github.com/JetBrains/kotlin/blob/2fdc8b6c147462a09fa770cb8cb3aeffe53f3e9e/libraries/stdlib/jvm/runtime/kotlin/jvm/functions/Functions.kt#L22)). Inside the invoke function, invokeSuspend will be called. (If any kotlin developer is reading this, I would be very happy if he/she could tell me the meaning of this piece of code :D)
 
-![](./assets/images_mhl_documentviewer/coroutine2.png)
+![](/assets/images_mhl_documentviewer/coroutine2.png)
 
 invokeSuspend function will download file from given url and save it as `outfile`. 
 
 ### loadProLibrary Function
 
-![](./assets/images_mhl_documentviewer/loadprolib.png)
+![](/assets/images_mhl_documentviewer/loadprolib.png)
 
 This functioon tries to load a native library named `libdocviewer_pro.so` from `libraryfolder` directory. 
 ```java
@@ -95,15 +95,15 @@ adb shell am start -n com.mobilehackinglab.documentviewer/.MainActivity -a andro
 
 As you can see in video, app gets the url from our intent and download our test file from server. After that it saves this file as "testo.pdf" in Downloads folder and render the file. For writing file to another directory we can try path traversal with `../` characters.  
 
-![](./assets/images_mhl_documentviewer/lfi_test_1.png)
+![](/assets/images_mhl_documentviewer/lfi_test_1.png)
 
 I gave the app's local storage to save the file but it saved the file in the Downloads folder again. getLastPathSegment fucntion parsed the our uri with `/` chars and file saved with original name. Lets take a look at [source code of getLastPathSegment](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/net/Uri.java;l=1076;drc=f5f71ff8fd1c5b1b39a28cb1585c7a0a097aa1c8;bpv=0;bpt=1)
 
-![](./assets/images_mhl_documentviewer/getlastpathsegment.png)
+![](/assets/images_mhl_documentviewer/getlastpathsegment.png)
 
 It gets the segments of uri and returns the last one. For getting segments it calls [getPathSegments function](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/net/Uri.java;l=2191;drc=f5f71ff8fd1c5b1b39a28cb1585c7a0a097aa1c8).
 
-![](./assets/images_mhl_documentviewer/getPathSegments.png)
+![](/assets/images_mhl_documentviewer/getPathSegments.png)
 
 This function gets uri and parses with `/` characters and decode the strings between slashes. As i understand, the decoding process applied one time for every segment. İf we give our malicious url as url-encoded, this function will split our url from the slash and return the encoded part  as last segment after decoding. Lets send intent with encoded url.
 
@@ -112,7 +112,7 @@ adb shell am start -n com.mobilehackinglab.documentviewer/.MainActivity -a andro
 
 # the encoded part after the port number will be decoded and returned as last segment
 ```
-![](./assets/images_mhl_documentviewer/lfi_test_2.png)
+![](/assets/images_mhl_documentviewer/lfi_test_2.png)
 
 Yes! It worked. We can write file into the application directory. Next step is preparing a proper library file and write into a native lib folder.
 
