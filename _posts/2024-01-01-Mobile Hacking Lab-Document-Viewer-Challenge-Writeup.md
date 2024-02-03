@@ -1,5 +1,5 @@
 ---
-title:  "Mobile Hacking Lab - Document Viewer Writeup"
+title:  "Mobile Hacking Lab Document Viewer Writeup"
 date:   2024-01-22T16:27:00-0400
 categories:
   - writeup
@@ -116,7 +116,7 @@ adb shell am start -n com.mobilehackinglab.documentviewer/.MainActivity -a andro
 
 Yes! It worked. We can write file into the application directory. Next step is preparing a proper library file and write into a native lib folder.
 
-For creating my native library, i created a c++ project with same name of target app in Android Studio. After that i changed the given c44 file little bit and added my hacky `initProFeatures` function. During this steps,  i watched [Laurie's video](https://www.youtube.com/watch?v=87uMi7L-3Hc)(thx a lot for great videos) about translating java code into native code on Android. Here is my native lib code:
+For creating my native library, i created a c++ project with same name of target app in Android Studio. After that i changed the given c++ file little bit and added my hacky `initProFeatures` function. During this steps,  i watched [Laurie's video](https://www.youtube.com/watch?v=87uMi7L-3Hc)(thx a lot for great videos) about translating java code into native code on Android. Here is my native lib code:
 ```c++
 #include <jni.h>
 #include <string>
