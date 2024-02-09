@@ -13,7 +13,6 @@ Hello everyone!
 In this blog post , I will try to explain my solution steps for [Config Editor](https://www.mobilehackinglab.com/course/lab-config-editor-rce) challenge from Mobile Hacking Lab. 
 
 ## Static Analysis
-
 When we open the app in emulator, it opens a page with "load" and "save" buttons and a text input area. When we press the load button, it opens the file manager for us to select a file and we can load example.yml file that created by app. Also we can write something to text area and save it with save button. Before saving file, it recommends a file name with yml extension again. Let's open it with jadx to understand the app.
 
 ![](/assets/images_mhl_configeditor/manifest.png)
