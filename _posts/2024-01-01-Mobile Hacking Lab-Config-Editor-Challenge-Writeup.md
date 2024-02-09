@@ -136,7 +136,7 @@ And poc video:
 We can run code remotely with small yaml file :)
 
 Sad note: 😔
-- I have tried lots of payloads to get reverse shell but i failed. [As mentioned here](https://stackoverflow.com/questions/25199307/unable-using-runtime-exec-to-execute-shell-command-echo-in-android-java-code), exec function does not execute [shell builtins](https://www.networkworld.com/article/967046/how-to-identify-shell-builtins-aliases-and-executable-files-on-linux-systems.html), it executes executables and for getting reverse shell i need to pass string array to constructor. Also i tried payloads with ${IFS} but they didn't work. If you can create working reverse shell payload please dm me on twitter or linkedin👀
+- I have tried lots of payloads to get reverse shell but i failed. [As mentioned here](https://stackoverflow.com/questions/25199307/unable-using-runtime-exec-to-execute-shell-command-echo-in-android-java-code), exec function does not execute [shell builtins](https://www.networkworld.com/article/967046/how-to-identify-shell-builtins-aliases-and-executable-files-on-linux-systems.html), it executes executables and for getting reverse shell i need to pass string array to constructor. Also i tried payloads with ${IFS} but they didn't work. If you can create working reverse shell payload please dm me on twitter or linkedin
 - In this example we have a class that executes commands but in real world scenario i dont know how i can get remote code execution on android app with this vulnerability. If you can get rce on this challenge with another method, please dm me 👀
 
 Thanks for reading! See you in next writeups :)
