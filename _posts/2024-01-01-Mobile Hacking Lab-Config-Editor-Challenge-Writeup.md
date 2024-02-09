@@ -64,7 +64,7 @@ person: !!javax.script.ScriptEngineManager [
 ```
 With this chain (If the attacker can control the content of the yaml file) attacker can get remote code execution. I will not explain the details of the attack in this article. If you want to examine the detailed stages of this attack, [I highly recommend this blog post.](https://www.mscharhag.com/security/snakeyaml-vulnerability-cve-2022-1471) I tried this payload with app but it gives error because ScriptEngineManager class not found. [After some research](https://stackoverflow.com/questions/46320972/engine-eval-returns-null-in-android-studio) i saw that ScriptEngineManager is not available on Android by default. Instead of that everyone recommend `rhino` but im not a Android developer and i didnt understand anything that i read about that topic :D
 
-But we need to get a remote code execution somehow. As you can see in the first picture I added at the beginning of the article, there is another class called LegcayCommandUtil in the application.
+But we need to get a remote code execution somehow. As you can see in the first picture I added at the beginning of the article, there is another class called LegacyCommandUtil in the application.
 
 ```java
 public final class LegacyCommandUtil {
