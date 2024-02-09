@@ -16,7 +16,7 @@ In this blog post , I will try to explain my solution steps for [Config Editor](
 
 When we open the app in emulator, it opens a page with "load" and "save" buttons and a text input area. When we press the load button, it opens the file manager for us to select a file and we can load example.yml file that created by app. Also we can write something to text area and save it with save button. Before saving file, it recommends a file name with yml extension again. Let's open it with jadx to understand the app.
 
-![](./assets/images_mhl_configeditor/manifest.png)
+![](/assets/images_mhl_configeditor/manifest.png)
 
 When we examine the manifest file, we see that an intent filter is defined for MainActivity. To properly trigger this activity we need to send intent with http/https or file scheme and VIEW action. Also, the type of data we will send with intent is expected to be yaml.
 ```bash
@@ -25,19 +25,19 @@ adb shell am start -n com.mobilehackinglab.configeditor/.MainActivity -a android
 ```
 But we need to know what happened when this activity triggered. To undestand this, lets analyze MainActivity
 
-![](./assets/images_mhl_configeditor/mainactivity.png)
+![](/assets/images_mhl_configeditor/mainactivity.png)
  
 Inside the onCreate function, handleIntent method called after setting the view of activity.
 
 ### handleIntent Function
 
-![](./assets/images_mhl_configeditor/handleIntent.png)
+![](/assets/images_mhl_configeditor/handleIntent.png)
 
 handleIntent function handle the coming intent and after checking the action and uri, sends the uri to CopyFileFromUri function. After copying file from uri, it loads the yaml file with loadYaml function. During download and save processes getLastPathSegment function leads to file write with directory traversal vulnerability but this is not the case we will look into in this post. I explained that vulnerability on my [previous post](https://sh4d0wlesss.github.io/writeup/Mobile-Hacking-Lab-Document-Viewer-Challenge-Writeup/). This challenge have same vulnerability too. If you dont trust me go and test it :D
 
 ### loadYaml Function
 
-![](./assets/images_mhl_configeditor/loadYaml.png)
+![](/assets/images_mhl_configeditor/loadYaml.png)
 
 loadYaml function gets the file from given uri and loads it with yaml.load function. This load function comes from snakeyaml(org.yaml.snakeyaml) package. This is a popular java library to parse yaml files. Some tips were given on the challenge page, and these tips mentioned finding a vulnerability in a 3rd party library. Since there is no native library file in the apk, the vulnerable library may be the snakeyaml library. Also, about a week before I wrote this article, I watched a [video prepared by mdisec](https://www.youtube.com/watch?v=IPrRccHlgLM) on YouTube, and while trying to solve this challenge, I remembered that the snakeyaml library was also mentioned in that video. In the video, a deserialization vulnerability(`CVE-2022-1471`) in the snakeyaml library is mentioned and the exploitation stages are shown in practice.
 
