@@ -59,7 +59,7 @@ But i got an error with this payload :/ To understand what the hack is happening
 
 ![](/assets/images_mhl_foodstore/error2.png)
 
-I got an error after `--`. I think it gives error because we cant add whitespace after `--` because before creating user object, app used trim function to remove whitespaces from given strings and (as i know) we have to add at least one whitespace after `--` chars in our query if commenting start at end of the query. Also as seen in frida output, address and isPro values are printed after newlines and our double dash can only comment the first line of query and maybe other lines can cause this error(But i tried commenting without spaces and it worked on online sqlite website :/ I'm confusing and if you know the real problem here, please dm me on twitter or linkedin with solution👉👈)
+I got an error after `--`. I think it gives error because we cant add whitespace after `--` because before creating user object, app used trim function to remove whitespaces from given strings and (as i know) we have to add at least one whitespace after `--` chars in our query if commenting start at end of the query. Also as seen in frida output, address and isPro values are printed after newlines and our double dash can only comment the first line of query and maybe other lines can cause this error(But i tried commenting without spaces and it worked on online sqlite website :/ I'm really confused and if you know the real problem here, please dm me on twitter or linkedin with solution👉👈)
 
 But wait, we can also use `/*` to commenting(multiline) on sqlite. Lets try it:
 ```sql
