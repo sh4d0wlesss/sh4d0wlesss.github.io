@@ -45,7 +45,7 @@ Java.perform(function(){
     const JavaString = Java.use('java.lang.String');
 
     MainActivity["parse"].implementation = function(str){
-        const payload = JavaString.$new("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCDEF);
+        const payload = JavaString.$new("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCDEF");
         console.log("parse func called with this arg ==> " + payload);
         const new_ret = this["parse"](payload);
         return new_ret;
