@@ -23,15 +23,15 @@ public final native String parse(String str);
 ```
 It means that we have a native library and we will use `parse` function from this lib file. 
 
-![](./assets/images_mhl_notekeeper/lib.png)
+![](/assets/images_mhl_notekeeper/lib.png)
 
 There is a one libnotekeeper.so file inside the apk. But this library file compiled only for arm64-v8a architecture. Because of that i can't run this app on genymotion vm (my pc don't have arm cpu). [Also arm translation tools not supports arm v8 arch.](https://support.genymotion.com/hc/en-us/articles/360010029677-How-to-run-applications-for-arm64-aarch64-armv8#:~:text=Genymotion%20Desktop,PC%20(Windows%2FLinux).) So, I have used corellium instance that provided by MobileHackingLab. 
 
-![](./assets/images_mhl_notekeeper/parse.png)
+![](/assets/images_mhl_notekeeper/parse.png)
 
 When we adding a new note, title string passed to parse function from native lib. We can analyze native library file with ghidra decompiler.
 
-![](./assets/images_mhl_notekeeper/ghidra.png)
+![](/assets/images_mhl_notekeeper/ghidra.png)
 
 Inside this function our title variable copied to another char array with for loop. But for loop count, our title's lenght is used and `local_2a4` array have 100 char size. What happens if we give a title longer than 100 characters? 
 
@@ -65,15 +65,15 @@ Interceptor.attach(Module.getExportByName('libc.so', 'system'), {
 
 This time i gave `100*"A" + "BCDEF"` to title. Lets see whats happened:
 
-![](./assets/images_mhl_notekeeper/frida_test2.png)
+![](/assets/images_mhl_notekeeper/frida_test2.png)
 
 We have succesfully overwite to `acStack576` variable and our input passed to system function. To understand better, we can use hexdump to follow memory state.
 
-![](./assets/images_mhl_notekeeper/memory1.png)
+![](/assets/images_mhl_notekeeper/memory1.png)
 
 As seen in screnshot, our title variable written before the text passed to stsyem function. If we can give input longer than 100 char, its overwritten.
 
-![](./assets/images_mhl_notekeeper/memory2.png)
+![](/assets/images_mhl_notekeeper/memory2.png)
 
 ### Code Execution
 
@@ -103,7 +103,7 @@ Interceptor.attach(Module.getExportByName('libc.so', 'system'), {
 
 ```
 
-![](./assets/images_mhl_notekeeper/poc1.png)
+![](/assets/images_mhl_notekeeper/poc1.png)
 
 We can execute command🎉🎉🎉
 Here is the poc video with another command:
