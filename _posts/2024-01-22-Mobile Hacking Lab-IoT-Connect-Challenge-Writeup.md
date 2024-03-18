@@ -1,6 +1,6 @@
 ---
 title:  "Mobile Hacking IoT Connect Writeup"
-date:   2024-01-22T16:27:00-0400
+date:   2024-01-22T16:34:00-0400
 categories:
   - writeup
 tags:
