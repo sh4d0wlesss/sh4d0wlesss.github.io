@@ -17,7 +17,7 @@ When we open the app in emulator, it opens a login page with login and signup bu
 
 Also there is a master switch button. This button can start all devices but guests can not use this button and its protected with 3 digit pin. Lets start our analyze with manifest file. 
 
-![](./assets/images_mhl_iotconnect/manifest.png)
+![](/assets/images_mhl_iotconnect/manifest.png)
 
 When we examine the manifest file, we see that a broadcast receiver named MasterReceiver defined without any permission protection. It means that everyone can trigger this receiver with proper arguments. Sample broadcast:  
 ```bash
@@ -25,13 +25,13 @@ adb shell am  broadcast -a MASTER_ON
 ```
 I just searched name of this broadcast receiver and find the implementation in CommunicationManager class. Also you can search "registerReceiver" string to find broadcast receivers registers.
 
-![](./assets/images_mhl_iotconnect/broadcastDefinition.png)
+![](/assets/images_mhl_iotconnect/broadcastDefinition.png)
  
 As seen in screenshot, we need to send broadcast with `"MASTER_ON"` action and a key as extra integer. This key sended to `check_key` function. If our key is correct, `turnOnAllDevices` will be called and we can turn on all devices without master account. Lets analyse check_key function. 
 
 ### check_key Function
 
-![](./assets/images_mhl_iotconnect/check_key.png)
+![](/assets/images_mhl_iotconnect/check_key.png)
 
 In this function, our key used to decrypt a base64 string and after decryption, expected result is `"master_on"` string. During key generation, our 3 digit key copied to another array. This array have 16 bytes and we have 13 null bytes after our key.
 ```
@@ -59,12 +59,6 @@ done
 And PoC video:
 
 [![](https://img.youtube.com/vi/GjnLXUowas4/0.jpg)](https://youtu.be/GjnLXUowas4)
-
-
-
-
-
-
 
 Also I wroted small python script(with help of ch*tGPT). We can bruteforce key with this scirpt. Here is my code:
 ```py
