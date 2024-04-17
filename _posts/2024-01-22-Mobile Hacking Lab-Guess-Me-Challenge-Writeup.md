@@ -5,7 +5,6 @@ categories:
   - writeup
 tags:
   - android
-  ---
   - ctf
 ---
 
