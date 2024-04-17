@@ -1,6 +1,6 @@
 ---
 title:  "Mobile Hacking Lab Guess Me Writeup"
-date:   2024-01-22T16:40:00-0400
+date:   2024-01-22T16:35:00-0400
 categories:
   - writeup
 tags:
