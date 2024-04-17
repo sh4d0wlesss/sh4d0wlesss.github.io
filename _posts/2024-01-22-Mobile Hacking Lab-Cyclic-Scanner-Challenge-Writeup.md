@@ -15,21 +15,21 @@ In this blog post , I will try to explain my solution steps for Cyclic Scanner c
 ## Static Analysis
 Application have only MainActivity activity and this activity have a switch for activating a service.
 Let's analyse code with jadx.
-![](./assets/images_mhl_cyclicscanner/1.png)
+![](/assets/images_mhl_cyclicscanner/1.png)
 
 When the manifest file is examined, some remarkable information is obtained.
 - It can be predicted that it will perform file operations on external storage by requesting the MANAGE_EXTERNAL_STORAGE permission.
 - Indicates that it will define a user-noticeable service (showing a notification in the status bar) using the FOREGROUND_SERVICE permission. (ScanService defined as service in manifest file.)
 
-![](./assets/images_mhl_cyclicscanner/2.png)
+![](/assets/images_mhl_cyclicscanner/2.png)
 
 When the codes of the MainActivity activity are examined, it is seen that if the key button shown to the user on the screen is activated, the scanning service starts and then an intent is sent to the ScanService service.
 
-![](./assets/images_mhl_cyclicscanner/3.png)
+![](/assets/images_mhl_cyclicscanner/3.png)
 
 When the codes of the ScanService service are examined, it is seen that when the service is started, it scans the files in the external storage and sends these files to the scanFile method in the ScanEngine class. Depending on the value returned from this method, whether the file is safe or infected is written to the logcat.
 
-![](./assets/images_mhl_cyclicscanner/4.png)
+![](/assets/images_mhl_cyclicscanner/4.png)
 
 The scanFile method calculates the sha1 hash value of the File object sent to it and checks whether it is one of the known malicious files. However, there is a command injection vulnerability here because the file location is added to the command string to be executed without any checking or cleaning process.
 
