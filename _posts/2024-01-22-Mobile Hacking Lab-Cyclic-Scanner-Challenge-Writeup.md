@@ -107,6 +107,6 @@ Don't forget to add
 
 permission to the manifest file so that files can be created in external storage.
 
-`PoC screenshot will be added here.`
+[![](https://img.youtube.com/vi/-Mx9lSTS57s/0.jpg)](https://youtu.be/-Mx9lSTS57s)
 
 Thanks for reading! See you in next writeups 👋🏻👋🏻
