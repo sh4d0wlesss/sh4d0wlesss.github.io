@@ -1,6 +1,6 @@
 ---
 title:  "8kSec DroidWars Writeup"
-date:   2025-10-03T16:32:00-0400
+date:   2025-09-12T16:33:00-0400
 categories:
   - writeup
 tags:
