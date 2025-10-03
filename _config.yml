@@ -84,6 +84,7 @@ defaults:
       comments: false
       share: false
       related: false
+      classes: wide
   # _pages
   - scope:
       path: "_pages"
