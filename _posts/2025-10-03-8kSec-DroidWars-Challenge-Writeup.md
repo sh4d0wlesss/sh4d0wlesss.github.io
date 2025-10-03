@@ -19,7 +19,7 @@ Goal is to create a plugin that appears legitimate but contains hidden code that
 
 ## Static Analysis
 
-![](screen1.png)
+![](/assets/8ksec_droidwars_images/screen1.png)
 
 Main function of application is showing game characters and their statistics on screen. Every character is a plugin file that loaded from spesific diretory on device. When we open the app in emulator, it shows a pikachu character as example. Also we can refresh the list, clear the plugins, check for malicious plugins and open the debug screen on main activity on settings screen. Lets start our analysis with jadx.
 
@@ -27,7 +27,7 @@ Main function of application is showing game characters and their statistics on 
 
 Manifest file have only one activity, MainActivity. In MainActivity code, `loadExternalPlugin` method is important for us.With `checkStoragePermissionAndLoadPlugins`, app checking for external storage access and after that it calls that function.
 
-![](load_plugin.png)
+![](/assets/8ksec_droidwars_images/load_plugin.png)
 
 `getAvaliablePlugins` method checks `/sdcard/PokeDex/plugins` directory for external plugins files with `.dex` file extension. If any dex file found, load it with `loadPlugin` method from `pluginLoader` class.
 
@@ -224,7 +224,7 @@ $ adb push com.eightksec.droidwars.plugin.Pwn.dex /sdcard/PokeDex/plugins
 ```
 After pushing the plugin to plugin directory and start the app, we can see the logs that we send from our malicious plugin.
 
-![](stolen.png)
+![](/assets/8ksec_droidwars_images/stolen.png)
 
 In real life scenarios, instead of getting files, we can get reverse shell. Also we can put our malicious plugin via malicious application. But here thats enough :)
 
