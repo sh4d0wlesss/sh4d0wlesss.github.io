@@ -19,7 +19,7 @@ Create a malicious application that exploits the AndroDialer application to init
 
 ## Static Analysis
 
-![](screen1.png)
+![](/assets/images_8ksec_androdialer/screen1.png)
 
 Main function of our application is calling numbers :) Lets start our analysis with jadx.
 
@@ -123,7 +123,7 @@ adb shell am start -a android.intent.action.VIEW -d "dialersec://call?enterprise
 ``` 
 Note: Dont forget to escape `&` character, otherwise shell will truncate the command from that special character.
 
-![](screen2.png)
+![](/assets/images_8ksec_androdialer/screen2.png)
 
 Also we can do it with an malicious app. Here is code for it:
 
