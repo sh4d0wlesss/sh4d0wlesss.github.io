@@ -94,7 +94,7 @@ countdownLauncer onActivityResult ->
 ![](/assets/8ksec_borderdroid_images/onkeypress.png)
 
 `YouAreSecureActivity` class have implemented onKeyDown callback function. This function called when a button pressed.
-- https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent)
+- [](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent))
 
 This method add `24` or `25` to `volumeSequence` array for volume up and volume down button presses and calls `checkVolumeSequence` method.
 
