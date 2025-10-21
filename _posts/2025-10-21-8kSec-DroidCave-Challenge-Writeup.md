@@ -19,7 +19,7 @@ Goal is to develop an Android application with an innocent appearance that can, 
 
 ## Static Analysis
 
-![](/assets/8ksec_droidcave_image/screen1.png)
+![](/assets/8ksec_droidcave_images/screen1.png)
 
 DroidCave app is a password manager app. We can store our usernames, passwordsa and some details about accounts. Also we can enable encryption mode and app will encrypt the password before saving. Lets start our analysis with jadx.
 
@@ -40,7 +40,7 @@ App has some activities and content providers but most of them are not exported.
 
 PasswordContentProvider:
 
-![](/assets/8ksec_droidcave_image/screen2.png)
+![](/assets/8ksec_droidcave_images/screen2.png)
 
 This provider define a uri matcher with some strings(uri segments):
 ```java
@@ -60,7 +60,7 @@ static {
 ```
 This uri types checked with a switch case and app runs related actions with uri:
 
-![](/assets/8ksec_droidcave_image/screen3.png)
+![](/assets/8ksec_droidcave_images/screen3.png)
 
 We can trigger this actions and get some data from this content provider via defined uri's.
 
